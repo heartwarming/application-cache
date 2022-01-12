@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um.css">
+        <script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.js"></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+	</head>
+	<body>
+		<div class="um-frame" id="main">
+			<div id="content" class="um-content">
+                <p id="timePara" class="mt40">
+                    <button onclick="getDateTime()" class="um-btn">获得日期和事件</button>
+                </p>
+                <p id="eventP" class="mt40">
+                    <button class="um-btn btn um-bgc-red">按钮</button>
+                </p>
+			</div>
+		</div>
+	</body>	
+</html>
+<script>
+	window.applicationCache.onchecking= function () {
+		console.log('正在检查manifest文件是否为最新');
+	}
+	window.applicationCache.ondownloading= function () {
+		console.log('触发downloading事件，开始下载文件');
+	}
+	window.applicationCache.onprogress= function () {
+		console.log('触发downloading事件，正在下载文件....');
+
+	}
+	window.applicationCache.oncached= function () {
+		console.log('触发oncached事件，首次下载文件成功....');
+	}
+	window.applicationCache.onupdateready= function () {
+		console.log('触发onupdateready事件，更新准备好了....');
+		window.applicationCache.swapCache();
+	}
+	window.applicationCache.onnoupdate= function () {
+		console.log('manifest清单是最新的');
+	}
+	window.applicationCache.onerror= function () {
+		console.log('触发error事件');
+	}
+</script>
+<script src="js/main.js" ></script>

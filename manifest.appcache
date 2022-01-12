@@ -1,0 +1,20 @@
+CACHE MANIFEST
+#version 1.1
+#需要缓存的文件
+CACHE:
+css/iuapmobile.um.css
+js/Frameworks/iuapmobile.frameworks.ui.js
+http://cdn.bootcss.com/jquery/1.9.0/jquery.js
+js/main.js
+index.html
+main.html
+
+#不需要缓存的文件
+NETWORK:
+https://api.github.com/emojis
+*
+
+#无法访问页面
+FALLBACK:
+404.html
+
